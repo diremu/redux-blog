@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { addPost } from "./blogSlice"; // Import the addPost action
+import { addPost } from "./blogSlice";
+import { blogdata } from "../blogdata";
 
 function CreatePosts() {
   const navigate = useNavigate();
@@ -16,32 +17,27 @@ function CreatePosts() {
     if (!isVerified) {
       navigate("/login");
     }
-  }, [isVerified, navigate]);
+  }, [isVerified, navigate]); // redirects you if you aren't logged in
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newPost = {
-      id: Date.now(), // Use a unique ID for the new post
+      id: blogdata.length + 1,
       name: userName,
       userId: userId,
       title: title,
       body: body,
-    };
+    }
 
-    // Dispatch the addPost action to update the Redux state
-    dispatch(addPost(newPost));
-
-    // Clear the form fields
-    setTitle("");
-    setBody("");
-
-    // Navigate back to the home page
-    navigate("/");
-  };
+    dispatch(addPost(newPost))
+    setTitle("")
+    setBody("")
+    navigate("/")
+  }
 
   return (
-    <div className="flex flex-col items-center bg-gray-300 p-6 rounded-lg">
+    <div className="flex flex-col items-center bg-gray-300 p-6 rounded-lg mt-6">
       <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
       <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-md">
         <input

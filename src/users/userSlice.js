@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {blogdata} from '../blogdata';
 
 const initialState = {
-    user: 'Guest',// i'll make this to be the same as guest
+    user: 'Guest',
     isVerified: false,
 }
 
