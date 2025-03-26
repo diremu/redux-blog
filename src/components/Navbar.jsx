@@ -16,11 +16,11 @@ export default function Navbar() {
                 <h1 className="text-5xl">Dbaxx Blogs</h1>
                 {isVerified ? 
                 <div className="flex justify-around items-center mr-3 w-[15vw] max-w-[240px]">
-                    <button className="border-[1.2px] border-green-300 py-2 px-4 rounded-xl" type="button" onClick={handleLogout}>Sign Out</button>
+                    <button className="border-[1.2px] border-green-300 py-2 px-4 rounded-xl cursor-pointer" type="button" onClick={handleLogout}>Sign Out</button>
                     <p id="username">{user}</p>
                 </div> :
                 <div className="flex justify-around items-center mr-3 w-[15vw] max-w-[240px]">
-                    <button className="border-[1.2px] border-green-300 py-2 px-4 rounded-xl" type="button" onClick={() => navigate("/login")}>Sign In</button>
+                    <button className="border-[1.2px] border-green-300 py-2 px-4 rounded-xl cursor-pointer" type="button" onClick={() => navigate("/login")}>Sign In</button>
                     <p id="username">Guest</p>
                 </div>
                 }
