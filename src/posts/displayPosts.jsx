@@ -1,16 +1,16 @@
-import { blogdata } from "../blogdata";
 import { useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom'
 
 export default function DisplayPosts() {
-  const landingBlogs = blogdata.slice(0, 12);
-  const navigate = useNavigate()
+  const blogs = useSelector((state) => state.blogs); // Get blogs from Redux state
   const userName = useSelector((state) => state.user.user);
   const isVerified = useSelector((state) => state.user.isVerified);
-  let userBlogs;
-  if (isVerified) {
-    userBlogs = blogdata.filter((blog) => blog.name === userName);
-  }
+
+  const landingBlogs = blogs.slice(0, 12); // Display the first 12 blogs for guests
+  const userBlogs = blogs.filter((blog) => blog.name === userName); // Filter blogs for the logged-in user
+
+  const navigate = useNavigate()
+
   return (
     <>
       <div className="flex flex-wrap justify-around">
