@@ -2,7 +2,7 @@ import DisplayPosts from "./posts/displayPosts";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import LoginForm from "./users/loginForm";
+import LoginForm from "./users/LoginForm";
 import CreatePosts from "./posts/createPosts";
 import { useSelector } from "react-redux";
 
