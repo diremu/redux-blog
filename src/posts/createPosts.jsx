@@ -8,8 +8,8 @@ function CreatePosts() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isVerified = useSelector((state) => state.user.isVerified);
-  const userName = useSelector((state) => state.user.user.user);
-  const userId = useSelector((state) => state.user.user.id);
+  const userName = useSelector((state) => state.user.user);
+  const userId = useSelector((state) => state.user.id);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 

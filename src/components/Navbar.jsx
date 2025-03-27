@@ -13,7 +13,7 @@ export default function Navbar() {
     return (
         <div className="flex w-full flex-row bg-red-300 min-h-6 py-3">
             <nav className="flex w-full mx-2 justify-between">
-                <h1 className="text-5xl">Dbaxx Blogs</h1>
+                <h1 className="text-5xl cursor-pointer" onClick={() => {navigate("/")}}>Dbaxx Blogs</h1>
                 {isVerified ? 
                 <div className="flex justify-around items-center mr-3 w-[15vw] max-w-[240px]">
                     <button className="border-[1.2px] border-green-300 py-2 px-4 rounded-xl cursor-pointer" type="button" onClick={handleLogout}>Sign Out</button>
