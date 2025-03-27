@@ -8,7 +8,7 @@ function CreatePosts() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isVerified = useSelector((state) => state.user.isVerified);
-  const userName = useSelector((state) => state.user.user);
+  const userName = useSelector((state) => state.user.user.user);
   const userId = useSelector((state) => state.user.user.id);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -22,6 +22,9 @@ function CreatePosts() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!title || !body ) {
+      return alert("You havent filled anything yet!")
+    }
     const newPost = {
       id: blogdata.length + 1,
       name: userName,
@@ -37,7 +40,7 @@ function CreatePosts() {
   }
 
   return (
-    <div className="flex flex-col items-center bg-gray-300 p-6 rounded-lg mt-6">
+    <div className="flex flex-col items-center bg-gray-300 p-6 rounded-lg mt-6 w-fit max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
       <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-md">
         <input
@@ -45,7 +48,7 @@ function CreatePosts() {
           placeholder="Post Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="border p-2 mb-4 rounded"
+          className="border p-2 mb-4 rounded w-[300px]"
           required
         />
         <textarea
